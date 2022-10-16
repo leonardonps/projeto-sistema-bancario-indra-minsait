@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-12">
+      <h2 class="pb-2 border-bottom"> {{ idConta ? 'Editar' : 'Cadastrar' }} Conta </h2>
+      <button type="text" class="btn btn-dark" id="btnVoltar" routerLink="/contas">Voltar para área de Contas</button>
+    </div>
+  </div>  
+  
+  <form [formGroup] ="contaForm" (ngSubmit)="cadastrarConta()">
+      <!--
+        {{ contaForm.value | json }}
+        {{ contaForm.valid | json }}
+      -->
+
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label for="agencia" class="form-label">Agência: <span id="asterisco">*</span></label>
+            <input type="text" class="form-control" id="agencia" formControlName="agencia" placeholder="Ex.: 1598 (apenas 4 dígitos)" autofocus>
+            <div *ngIf="agencia?.errors">
+              <p *ngIf="agencia?.errors?.['pattern']">
+                Número da agência com formatação inválida.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="numero" class = "form-label">Número da conta: <span id="asterisco">*</span></label>
+            <input type="text" class="form-control" id = "numero" formControlName="numero" placeholder="Ex.: 1598-7">
+            <div *ngIf="numero?.errors">
+              <p *ngIf="numero?.errors?.['pattern']">
+                Número da conta com formatação inválida.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label for="Lista de Clientes" class="form-label">Selecione um cliente: <span id="asterisco">*</span></label>
+            <select class="form-select" name = "ListaClientes" size = 1 formControlName="idCliente">   
+              <option *ngFor="let cliente of clientes"value= "{{ cliente.id }}">{{ cliente.nome }}</option>
+            </select>
+            <p id="campo-cliente"> Campo obrigatório</p>
+          </div> 
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="saldo" class="form-label">Saldo inicial: <span id="asterisco">*</span></label>
+            <input type="number" class="form-control" id = "saldo" formControlName="saldo" required placeholder="Apenas números. Ex.: 1500 para R$1.500,00">
+            <!-- <div *ngIf="saldo?.errors">
+              <p *ngIf="saldo?.errors?.['required']">
+                Campo obrigatório
+              </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <button type="submit" [disabled] = "!contaForm.valid" class="btn btn-dark" id="btnCadastrarEditar">{{idConta ? 'Editar' : 'Cadastrar'}}</button>
+      <button type="reset" class="btn btn-danger" id="btnLimpar"> Limpar tudo</button>
+    </form>

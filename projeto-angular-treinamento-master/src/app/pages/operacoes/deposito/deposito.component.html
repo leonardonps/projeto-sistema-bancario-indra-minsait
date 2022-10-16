@@ -1,0 +1,38 @@
+<app-operacoes></app-operacoes>
+<form [formGroup] ="depositoForm" (ngSubmit)="depositarValor()">
+      <!-- {{ depositoForm.value | json }}
+      {{ depositoForm.valid | json }} -->
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label for="nome" class="form-label">Agência: <span id="asterisco">*</span></label>
+            <input type="text" class="form-control" id="agencia" formControlName="agencia" placeholder="Ex.: 1598 (apenas 4 dígitos)" autofocus required>
+            <p *ngIf="agencia?.errors?.['pattern']">
+              Número da agência com formatação inválida.
+            </p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="conta" class = "form-label">Conta: <span id="asterisco">*</span></label>
+            <input type="text" class="form-control" id = "numeroConta" formControlName="numeroConta" placeholder="Ex.: 1598-7" required>
+            <p *ngIf="numeroConta?.errors?.['pattern']">
+              Número da conta com formatação inválida.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label for="valorDeposito" class="form-label">Valor em reais do depósito: <span id="asterisco">*</span></label>
+            <input type="number" class="form-control" id = "valor" formControlName="valor" placeholder="Apenas números. Ex.: 1500 para R$1.500,00" required>
+          </div>
+        </div>
+      </div>
+     
+
+     <button type="submit" [disabled] = "!depositoForm.valid" class="btn btn-dark">Depositar</button>
+     <button type="reset" class="btn btn-danger" id="btnLimpar"> Limpar tudo</button>
+
+</form>

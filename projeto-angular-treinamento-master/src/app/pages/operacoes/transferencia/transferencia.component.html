@@ -1,0 +1,58 @@
+<app-operacoes></app-operacoes>
+<form [formGroup] ="transferenciaForm" (ngSubmit)="transferirValor()">
+    <!-- {{ transferenciaForm.value | json }}
+    {{ transferenciaForm.valid | json }} -->
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="agenciaOrigem" class="form-label">Agência origem: <span id="asterisco">*</span></label>
+          <input type="text" class="form-control" id="agenciaOrigem" formControlName="agenciaOrigem" placeholder="Ex.: 1598 (apenas 4 dígitos)" required>
+          <p *ngIf="agenciaOrigem?.errors?.['pattern']">
+            Número da agência com formatação inválida.
+          </p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="numeroContaOrigem" class = "form-label">Conta origem: <span id="asterisco">*</span></label>
+          <input type="text" class="form-control" id = "numeroContaOrigem" formControlName="numeroContaOrigem" placeholder="Ex.: 1598-7" required>
+          <p *ngIf="numeroContaOrigem?.errors?.['pattern']">
+            Número da conta com formatação inválida.
+          </p>      
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label for="agenciaDestino" class="form-label">Agência destino: <span id="asterisco">*</span></label>
+            <input type="text" class="form-control" id="agenciaDestino" formControlName="agenciaDestino" placeholder="Ex.: 1598 (apenas 4 dígitos)" required>
+            <p *ngIf="agenciaDestino?.errors?.['pattern']">
+              Número da agência com formatação inválida.
+            </p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="numeroContaDestino" class = "form-label">Conta destino: <span id="asterisco">*</span></label>
+            <input type="text" class="form-control" id = "numeroContaDestino" formControlName="numeroContaDestino" required placeholder="Ex.: 1598-8">
+            <p *ngIf="numeroContaDestino?.errors?.['pattern']">
+              Número da conta com formatação inválida.
+            </p> 
+          </div>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="valorTransferencia" class="form-label">Valor: <span id="asterisco">*</span></label>
+          <input type="number" class="form-control" id = "valor" formControlName="valor" placeholder="Apenas números. Ex.: 1500 para R$1.500,00" required>
+        </div>
+      </div>
+    </div>
+   
+
+   <button type="submit" [disabled] = "!transferenciaForm.valid" class="btn btn-dark">Transferir</button>
+   <button type="reset" class="btn btn-danger" id="btnLimpar"> Limpar tudo</button>
+
+</form>

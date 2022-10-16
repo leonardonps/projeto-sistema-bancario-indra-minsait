@@ -1,0 +1,23 @@
+#valor{
+    width: 49% !important;
+}
+#asterisco{
+    color: red;
+}
+
+#btnLimpar{
+    margin-left: 10px;
+}
+
+p{
+    margin-top: 3px;
+    background-color: #fadcdc;
+    border-style: solid;
+    border-color: #f49898;
+    border-width: 1px;
+    border-radius: 5px;
+    color: #d33737 ;
+    font-size: 12px;
+    padding-left: 6px;
+}
+

@@ -1,0 +1,88 @@
+<h2 class="pb-2 border-bottom">Extrato</h2>
+<h3>Nessa área de Extrato, você consegue consultar o extrato de alguma conta, utilizando o número da agência, conta e datas inicial e final.</h3>
+
+<form [formGroup] ="extratoForm" (ngSubmit)="consultarExtrato()">
+      <!-- {{ extratoForm.value | json }}
+      {{ extratoForm.valid | json }} -->
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label for="nome" class="form-label">Agência: <span id="asterisco">*</span></label>
+            <input type="text" class="form-control" id="agencia" formControlName="agencia" placeholder="Ex.: 1598 (apenas 4 dígitos)" autofocus required>
+            <div *ngIf="agencia?.errors">
+              <p *ngIf="agencia?.errors?.['pattern']">
+                Número da agência com formatação inválida.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="conta" class = "form-label">Conta: <span id="asterisco">*</span></label>
+            <input type="text" class="form-control" id = "conta" formControlName="conta" placeholder="Ex.: 1598-7" required>
+            <div *ngIf="conta?.errors">
+              <p *ngIf="conta?.errors?.['pattern']">
+                Número da conta com formatação inválida.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label for="dataInicial" class="form-label">Data Inicial: <span id="asterisco">*</span></label>
+            <input type="date" class="form-control" id = "dataInicial" formControlName="dataInicial" placeholder="Ex.: 01/01/2022" required>
+            <div *ngIf="dataInicial?.errors">
+              <p *ngIf="dataInicial?.errors?.['pattern']">
+                Data com formatação inválida.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="dataFinal" class="form-label">Data Final: <span id="asterisco">*</span></label>
+            <input type="date" class="form-control" id ="dataFinal" formControlName="dataFinal" placeholder="Ex.: 01/01/2022" required>
+            <div *ngIf="dataFinal?.errors">
+              <p *ngIf="dataFinal?.errors?.['pattern']">
+                Data com formatação inválida.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+     <button type="submit" [disabled] = "!extratoForm.valid" class="btn btn-dark">Consultar</button>
+     <button type="reset" class="btn btn-danger" id="btnLimpar"> Limpar tudo</button>
+</form>
+  
+<section class="hide" id="area-extrato">
+      <h3 id="extrato-consultado">Extrato consultado</h3>
+      <div class="col-12">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Agência</th>
+              <th scope="col">Número da conta</th>
+              <th scope="col">Tipo de transação</th>
+              <th class="col">Valor em R$</th>
+              <th scope="col">Data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let extrato of listaExtrato">
+              <td>{{ extrato.id }}</td>
+              <td>{{ extrato.conta.agencia }}</td>
+              <td>{{ extrato.conta.numero }}</td>
+              <td>{{ extrato.transacao}}</td>
+              <td>{{ extrato.valor }}</td>
+              <td>{{ extrato.data }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div> 
+</section>
+    
+  

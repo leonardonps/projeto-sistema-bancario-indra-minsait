@@ -1,0 +1,44 @@
+p{
+    margin-top: 3px;
+    background-color: #fadcdc;
+    border-style: solid;
+    border-color: #f49898;
+    border-width: 1px;
+    border-radius: 5px;
+    color: #d33737 ;
+    font-size: 12px;
+    padding-left: 6px;
+}
+
+h3{
+    font-size: 150%;
+    text-align: justify;
+    margin-bottom: 1%;    
+}
+
+.hide{
+    display:none;
+}
+
+form{
+    margin-bottom: 5%;
+}
+
+.table-hover tbody tr:hover td {
+    background: #dadada;
+}
+
+#asterisco{
+    color: red;
+}
+
+#btnLimpar{
+    margin-left: 10px;
+}
+
+#extrato-consultado{
+    background-color: #171a1c;
+    color: white;
+    text-align: center;
+    font-size: 200% !important;
+}

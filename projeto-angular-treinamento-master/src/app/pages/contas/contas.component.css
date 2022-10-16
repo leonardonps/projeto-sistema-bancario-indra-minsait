@@ -1,0 +1,42 @@
+
+#btnCadastrarConta{
+    height: 40px !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.table-hover tbody tr:hover td {
+    background: #dadada;
+
+}
+
+#btnEditar:active{
+    background-color: #03973e;
+ }
+ 
+ #btnExcluir:active{
+     background-color: #dc3545;
+ }
+
+#caixaTexto{
+    margin-top: 2px;
+    width:  400px;
+}
+#caixaTexto:hover{
+    box-shadow: #03973e;
+}
+
+#btnPesquisar{
+    background-color: #03973e !important;
+    margin-top: 2px;
+}
+
+#h2-tabela-contas{
+    background-color: #171a1c;
+    color: white;
+    text-align: center;
+}
+h3{
+    font-size: 95%;
+}

@@ -1,0 +1,34 @@
+#btnCadastrarEditar{
+    margin-top: 5px;
+}
+
+#btnLimpar{
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+#btnVoltar{
+    margin-bottom: 20px;
+    height: 30px !important;
+    width: 20% !important;
+    font-size: smaller;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#asterisco{
+    color: #bc1111;
+}
+
+p{
+    margin-top: 3px;
+    background-color: #fadcdc;
+    border-style: solid;
+    border-color: #f49898;
+    border-width: 1px;
+    border-radius: 5px;
+    color: #d33737 ;
+    font-size: 12px;
+    padding-left: 6px;
+}

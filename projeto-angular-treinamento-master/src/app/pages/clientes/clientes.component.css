@@ -1,0 +1,38 @@
+.table-hover tbody tr:hover td {
+    background: #dadada;
+}
+
+
+#btnCadastrarCliente{
+    height: 40px !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0% !important;
+}
+
+#btnEditar:active{
+   background-color: #03973e;
+}
+
+#btnExcluir:active{
+    background-color: #dc3545;
+}
+
+#caixaTexto{
+    margin-top: 2px;
+    width:  400px;
+}
+#caixaTexto:hover{
+    box-shadow: #03973e;
+}
+
+#h2-tabela-clientes{
+    background-color: #171a1c;
+    color: white;
+    text-align: center;
+}
+h3{
+    font-size: 95%;
+}

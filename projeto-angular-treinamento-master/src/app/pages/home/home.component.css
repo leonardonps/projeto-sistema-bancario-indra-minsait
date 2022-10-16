@@ -1,0 +1,25 @@
+p{
+    height: 130px;
+    text-align: justify;
+}
+.col{
+    display: flex;
+    justify-content: center;
+}
+
+#cards{
+    width: 100%; 
+    height: 92%;
+}
+
+#row-principal{
+    margin-top: 3%;
+}
+.row{
+    padding-left: 110px;
+    padding-right: 100px;
+}
+.btn-outline-dark:hover{
+    background-color: #03973e !important;
+    border-color: #03973e !important;
+}

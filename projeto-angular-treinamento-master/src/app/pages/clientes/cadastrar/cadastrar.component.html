@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-12">
+    <h2 class="pb-2 border-bottom"> {{ idCliente ? 'Editar' : 'Cadastrar' }} Cliente </h2>
+    <button type="text" class="btn btn-dark" id="btnVoltar" routerLink="/clientes">Voltar para área de Clientes</button>
+  </div>
+</div>
+
+
+<form [formGroup] ="clienteForm" (ngSubmit)="cadastrar()" #formDir = "ngForm">
+  <div class="form-group">
+    <!--
+    {{ clienteForm.value | json }}
+    {{ clienteForm.valid | json }}
+    -->
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome completo do cliente: <span id="asterisco">*</span> </label>
+          <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="Ex.: João da Silva" autofocus>
+          <div *ngIf="nome?.errors">
+            <!-- <p *ngIf="nome?.errors?.['required']">
+              * Nome é obrigatório.
+            </p> -->
+            <p *ngIf="nome?.errors?.['minlength']">
+              Nome deve ter no mínimo 3 caracteres.
+            </p>
+            <p *ngIf="nome?.errors?.['maxlength']">
+              Nome deve ter no máximo 100 caracteres.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="cpf" class = "form-label">CPF: <span id="asterisco">*</span></label>
+          <input type="text" class="form-control" id = "cpf" formControlName="cpf" placeholder="Ex.: 12345678998 (apenas os números)">
+          <div *ngIf="cpf?.errors && !cpf?.pristine">
+            <!-- <p *ngIf="cpf?.errors?.['required']">
+              * CPF é obrigatório.
+            </p> -->
+            <p *ngIf="cpf?.errors?.['cpfInvalido']">
+              CPF com formatação inválida.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="email" class="form-label">E-mail: <span id="asterisco">*</span> </label>
+          <input type="email" class="form-control" id = "email" formControlName="email" placeholder="Ex.: email@email.com">
+          <div *ngIf="email?.errors">
+            <!-- <p *ngIf="email?.errors?.['required']">
+              * E-mail é obrigatório.
+            </p> -->
+            <p *ngIf="email?.errors?.['email']">
+              E-mail com formatação inválida.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="observacoes" class="form-label">Observações adicionais:</label>
+          <textarea class="form-control" rows="3" formControlName="observacoes" placeholder="Digite aqui algumas informações adicionais sobre o cliente."></textarea>
+        </div>
+      </div>
+    </div>
+    <button type="submit" [disabled] = "!clienteForm.valid" class="btn btn-dark" id="btnCadastrarEditar">{{idCliente ? 'Editar' : 'Cadastrar'}}</button>
+    <button type="reset" class="btn btn-danger" id="btnLimpar"> Limpar tudo</button>
+  </div>
+  </form>
+
